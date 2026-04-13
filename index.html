@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sašenka slaví 8. narozeniny! 🚀</title>
+
+  <!-- Open Graph pro sdílení na WhatsApp / Facebook -->
+  <meta property="og:title"       content="Sašenka slaví 8. narozeniny! 🚀"/>
+  <meta property="og:description" content="26. 4. 2026 od 13:00 v Laser Aréně Olomouc. Přijď si zahrát laser game a oslavit s námi!"/>
+  <meta property="og:type"        content="website"/>
+  <meta property="og:locale"      content="cs_CZ"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --neon-pink:   #ff2d87;
+      --neon-cyan:   #00f5ff;
+      --neon-purple: #b94fff;
+      --neon-yellow: #ffe600;
+      --dark:        #080818;
+      --card-bg:     rgba(255,255,255,0.04);
+      --glow-pink:   0 0 12px #ff2d87, 0 0 30px #ff2d8766;
+      --glow-cyan:   0 0 12px #00f5ff, 0 0 30px #00f5ff66;
+      --glow-purple: 0 0 12px #b94fff, 0 0 30px #b94fff66;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--dark);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image:
+        linear-gradient(rgba(0,245,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,245,255,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none; z-index: 0;
+    }
+
+    .lasers { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+    .laser {
+      position: absolute; height: 2px; width: 60vw;
+      border-radius: 2px; opacity: 0;
+      animation: shoot 5s linear infinite;
+    }
+    .laser:nth-child(1) { top: 18%; background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);   animation-delay: 0s; }
+    .laser:nth-child(2) { top: 42%; background: linear-gradient(90deg, transparent, var(--neon-pink), transparent);   animation-delay: 1.5s; }
+    .laser:nth-child(3) { top: 67%; background: linear-gradient(90deg, transparent, var(--neon-purple), transparent); animation-delay: 3s; }
+    .laser:nth-child(4) { top: 82%; background: linear-gradient(90deg, transparent, var(--neon-yellow), transparent); animation-delay: 4.2s; }
+    @keyframes shoot {
+      0%   { left: -60vw; opacity: 0; }
+      5%   { opacity: 1; }
+      90%  { opacity: 1; }
+      100% { left: 110vw; opacity: 0; }
+    }
+
+    .stars { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+    .star { position: absolute; border-radius: 50%; background: #fff; animation: twinkle 3s ease-in-out infinite; }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50%       { opacity: 1;   transform: scale(1.6); }
+    }
+
+    .wrapper { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 0 20px 70px; }
+
+    /* HERO */
+    .hero { text-align: center; padding: 70px 0 50px; }
+    .hero .emoji-burst { font-size: 3rem; letter-spacing: 6px; display: block; margin-bottom: 18px; animation: pulse 2.2s ease-in-out infinite; }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(2rem, 8vw, 3.6rem); font-weight: 900; line-height: 1.1;
+      background: linear-gradient(120deg, var(--neon-cyan), var(--neon-pink), var(--neon-purple));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 10px;
+    }
+    .hero .subtitle { font-size: 1.25rem; font-weight: 700; color: var(--neon-yellow); letter-spacing: 1px; margin-bottom: 30px; }
+    .hero .intro-text { font-size: 1.05rem; line-height: 1.75; color: rgba(255,255,255,0.82); max-width: 540px; margin: 0 auto; }
+    .divider { width: 60px; height: 3px; background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple)); border-radius: 3px; margin: 0 auto 28px; }
+
+    /* COUNTDOWN */
+    .countdown-wrap { text-align: center; margin-bottom: 24px; }
+    .countdown-label { font-family: 'Orbitron', sans-serif; font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; color: var(--neon-yellow); margin-bottom: 16px; opacity: 0.85; }
+    .countdown-grid { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .countdown-unit { background: rgba(255,230,0,0.06); border: 1px solid rgba(255,230,0,0.25); border-radius: 16px; padding: 16px 18px 12px; min-width: 72px; box-shadow: 0 0 18px rgba(255,230,0,0.08); }
+    .countdown-num { font-family: 'Orbitron', sans-serif; font-size: 2rem; font-weight: 900; color: var(--neon-yellow); text-shadow: 0 0 16px #ffe600, 0 0 40px #ffe60055; line-height: 1; display: block; }
+    .countdown-sub { font-size: 0.65rem; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-top: 6px; display: block; }
+    .countdown-done { font-family: 'Orbitron', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--neon-pink); text-shadow: var(--glow-pink); }
+
+    /* CARDS */
+    .card {
+      background: var(--card-bg); border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 20px; padding: 30px 32px; margin-bottom: 22px;
+      backdrop-filter: blur(8px); position: relative; overflow: hidden;
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .card.visible { opacity: 1; transform: translateY(0); }
+    .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 20px 20px 0 0; }
+    .card.cyan::before   { background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple)); }
+    .card.pink::before   { background: linear-gradient(90deg, var(--neon-pink), var(--neon-yellow)); }
+    .card.purple::before { background: linear-gradient(90deg, var(--neon-purple), var(--neon-cyan)); }
+    .card.green::before  { background: linear-gradient(90deg, #00ff9f, var(--neon-cyan)); }
+
+    .card-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
+    .card h2 { font-family: 'Orbitron', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; }
+    .card.cyan h2   { color: var(--neon-cyan);   text-shadow: var(--glow-cyan); }
+    .card.pink h2   { color: var(--neon-pink);   text-shadow: var(--glow-pink); }
+    .card.purple h2 { color: var(--neon-purple); text-shadow: var(--glow-purple); }
+    .card.green h2  { color: #00ff9f;            text-shadow: 0 0 12px #00ff9f, 0 0 30px #00ff9f55; }
+    .card p { font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.85); }
+
+    /* DETAILS GRID */
+    .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 480px) { .details-grid { grid-template-columns: 1fr; } }
+    .detail-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; padding: 16px 18px; }
+    .detail-item .label { font-family: 'Orbitron', sans-serif; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; color: var(--neon-cyan); margin-bottom: 5px; opacity: 0.8; }
+    .detail-item .value { font-size: 1.05rem; font-weight: 800; color: #fff; }
+
+    /* CHECKLIST */
+    .checklist { list-style: none; margin-top: 4px; }
+    .checklist li { padding: 7px 0; color: rgba(255,255,255,0.85); font-size: 1rem; display: flex; align-items: flex-start; gap: 10px; line-height: 1.6; }
+    .checklist li::before { content: '▸'; color: var(--neon-purple); font-size: 0.9rem; flex-shrink: 0; margin-top: 2px; }
+
+    /* GIFTS */
+    .gift-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .gift-tag { background: rgba(255,45,135,0.12); border: 1px solid rgba(255,45,135,0.3); border-radius: 50px; padding: 7px 16px; font-size: 0.9rem; font-weight: 700; color: #ffb3d4; }
+
+    /* MAP */
+    .map-wrap { border-radius: 16px; overflow: hidden; border: 1px solid rgba(0,245,255,0.2); box-shadow: 0 0 30px rgba(0,245,255,0.08); margin-top: 18px; }
+    .map-wrap iframe { display: block; width: 100%; height: 260px; border: none; }
+    .map-address { background: rgba(0,245,255,0.05); border-top: 1px solid rgba(0,245,255,0.15); padding: 12px 16px; font-size: 0.9rem; color: rgba(255,255,255,0.75); line-height: 1.6; }
+    .map-address strong { color: var(--neon-cyan); display: block; margin-bottom: 2px; }
+
+    /* BUTTONS ROW */
+    .btn-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    .venue-link, .cal-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 22px; border-radius: 50px; text-decoration: none;
+      font-family: 'Orbitron', sans-serif; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .venue-link { border: 2px solid var(--neon-cyan);   color: var(--neon-cyan); }
+    .venue-link:hover { background: rgba(0,245,255,0.1); box-shadow: var(--glow-cyan); }
+    .cal-btn   { border: 2px solid var(--neon-purple); color: var(--neon-purple); }
+    .cal-btn:hover   { background: rgba(185,79,255,0.1); box-shadow: var(--glow-purple); }
+
+    /* RSVP */
+    .rsvp-box {
+      text-align: center; border: 2px solid var(--neon-pink); border-radius: 20px;
+      padding: 36px 30px; margin-bottom: 22px; background: rgba(255,45,135,0.05);
+      box-shadow: var(--glow-pink);
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .rsvp-box.visible { opacity: 1; transform: translateY(0); }
+    .rsvp-label { font-family: 'Orbitron', sans-serif; font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--neon-pink); margin-bottom: 12px; }
+    .rsvp-box p { font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.75; }
+    .rsvp-deadline { display: inline-block; margin: 12px 0 6px; font-size: 0.85rem; font-weight: 700; color: rgba(255,255,255,0.45); letter-spacing: 1px; }
+    .rsvp-contact { display: block; margin-top: 8px; font-size: 1.6rem; font-weight: 900; color: var(--neon-yellow); text-shadow: 0 0 16px #ffe600; text-decoration: none; letter-spacing: 2px; transition: text-shadow 0.2s; }
+    .rsvp-contact:hover { text-shadow: 0 0 30px #ffe600, 0 0 60px #ffe60088; }
+    .rsvp-name { display: block; margin-top: 4px; font-size: 0.85rem; color: rgba(255,255,255,0.4); letter-spacing: 1px; }
+
+    /* FOOTER */
+    .footer {
+      text-align: center; padding-top: 10px;
+      font-size: 1rem; font-weight: 700;
+      color: rgba(255,255,255,0.65); letter-spacing: 1px;
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .footer.visible { opacity: 1; transform: translateY(0); }
+    .footer span { color: var(--neon-pink); font-size: 1.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="lasers">
+  <div class="laser"></div><div class="laser"></div>
+  <div class="laser"></div><div class="laser"></div>
+</div>
+<div class="stars" id="stars"></div>
+
+<div class="wrapper">
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="emoji-burst">🚀 🎂 🚀</span>
+    <h1>SAŠENKA<br>SLAVÍ 8. NAROZENINY!</h1>
+    <p class="subtitle">Přijď to s námi oslavit! 🎉</p>
+    <div class="divider"></div>
+    <p class="intro-text">
+      Ahoj kamaráde/kamarádko! Těšit se můžeš na spoustu zábavy, dobrodružství
+      a hlavně si společně dáme parádní laserovou střílečku!
+    </p>
+  </div>
+
+  <!-- COUNTDOWN -->
+  <div class="countdown-wrap">
+    <div class="countdown-label">⏳ Odpočítávání do oslavy</div>
+    <div class="countdown-grid" id="countdown">
+      <div class="countdown-unit"><span class="countdown-num" id="cd-days">--</span><span class="countdown-sub">Dní</span></div>
+      <div class="countdown-unit"><span class="countdown-num" id="cd-hours">--</span><span class="countdown-sub">Hodin</span></div>
+      <div class="countdown-unit"><span class="countdown-num" id="cd-mins">--</span><span class="countdown-sub">Minut</span></div>
+      <div class="countdown-unit"><span class="countdown-num" id="cd-secs">--</span><span class="countdown-sub">Sekund</span></div>
+    </div>
+  </div>
+
+  <!-- KDY A KDE -->
+  <div class="card cyan">
+    <span class="card-icon">📅</span>
+    <h2>Kdy a kde?</h2>
+    <div class="details-grid">
+      <div class="detail-item">
+        <div class="label">Datum</div>
+        <div class="value">26. 04. 2026</div>
+      </div>
+      <div class="detail-item">
+        <div class="label">Začátek</div>
+        <div class="value">13:00</div>
+      </div>
+      <div class="detail-item" style="grid-column:1/-1;">
+        <div class="label">Místo</div>
+        <div class="value">Laser Aréna Olomouc, Legionářská 739/7, 2. patro</div>
+      </div>
+      <div class="detail-item" style="grid-column:1/-1; border-color:rgba(255,230,0,0.25); background:rgba(255,230,0,0.05);">
+        <div class="label" style="color:var(--neon-yellow);">První hra startuje</div>
+        <div class="value">v 13:15 - doraž prosím včas! 🔫</div>
+      </div>
+    </div>
+
+    <div class="map-wrap">
+      <iframe
+        src="https://www.openstreetmap.org/export/embed.html?bbox=17.2426%2C49.5946%2C17.2506%2C49.5986&layer=mapnik&marker=49.5966317%2C17.2466436"
+        allowfullscreen loading="lazy">
+      </iframe>
+      <div class="map-address">
+        <strong>Laser Aréna Olomouc - Legionářská</strong>
+        Legionářská 739/7, 2. patro, 779 00 Olomouc
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <a class="venue-link" href="https://www.laserarenaolomouc.cz/" target="_blank" rel="noopener">🌐 laserarenaolomouc.cz</a>
+      <a class="cal-btn" id="calBtn" href="#" target="_blank" rel="noopener">📅 Přidat do kalendáře</a>
+    </div>
+  </div>
+
+  <!-- CO TĚ ČEKÁ -->
+  <div class="card purple">
+    <span class="card-icon">👟</span>
+    <h2>Co tě čeká a co si vzít</h2>
+    <ul class="checklist">
+      <li>Sportovní obuv a pohodlné oblečení - čeká nás pořádná akce!</li>
+      <li>Na místě jsou připraveny šatny i sprchy, nemusíš se ničeho obávat.</li>
+      <li>Rozdělíme se do teamů podle potřeby a několikrát si zahrajeme.</li>
+      <li>Dobrou náladu a chuť vyhrát! 🏆</li>
+    </ul>
+  </div>
+
+  <!-- JÍDLO -->
+  <div class="card green">
+    <span class="card-icon">🍕</span>
+    <h2>Občerstvení</h2>
+    <p>
+      Nemusíš se bát, že odejdeš hladový/á. Občerstvení bude plně zajištěno -
+      dáme si pizzu a další dobroty. Prostě přijď s chutí!
+    </p>
+  </div>
+
+  <!-- DÁRKY -->
+  <div class="card pink">
+    <span class="card-icon">🎁</span>
+    <h2>Dárky?</h2>
+    <p>
+      Pokud chceš donést dárek, potěšíš mě čímkoli na tvoření a malování.
+      I drobnosti na naparádění mi udělají velkou radost!
+    </p>
+    <div class="gift-tags">
+      <span class="gift-tag">🎨 Malování</span>
+      <span class="gift-tag">✂️ Tvoření</span>
+      <span class="gift-tag">📿 Přívěšky</span>
+      <span class="gift-tag">💜 Náramky</span>
+      <span class="gift-tag">🎀 Gumičky do vlasů</span>
+    </div>
+  </div>
+
+  <!-- RSVP -->
+  <div class="rsvp-box">
+    <div class="rsvp-label">✉️ Potvrzení účasti</div>
+    <p>Potvrď prosím mamince, jestli přijdeš.</p>
+    <span class="rsvp-deadline">nejpozději do 19. dubna 2026</span>
+    <a class="rsvp-contact" href="tel:603755500">📞 603 755 500</a>
+    <span class="rsvp-name">Tereska (maminka)</span>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Už se moc těším na všechny své kamarády! 😉✨<br>
+    <span>♥</span> Sašenka
+  </div>
+
+</div>
+
+<script>
+  // Stars
+  const starsEl = document.getElementById('stars');
+  for (let i = 0; i < 80; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    s.style.left   = Math.random() * 100 + 'vw';
+    s.style.top    = Math.random() * 100 + 'vh';
+    s.style.animationDelay    = (Math.random() * 4) + 's';
+    s.style.animationDuration = (2 + Math.random() * 3) + 's';
+    s.style.width = s.style.height = (1 + Math.random() * 2.5) + 'px';
+    starsEl.appendChild(s);
+  }
+
+  // Countdown - 26.04.2026 13:00 Prague (CEST = UTC+2)
+  const target = new Date('2026-04-26T13:00:00+02:00').getTime();
+  function pad(n) { return String(n).padStart(2, '0'); }
+  function tick() {
+    const diff = target - Date.now();
+    const grid = document.getElementById('countdown');
+    if (diff <= 0) {
+      grid.innerHTML = '<span class="countdown-done">🎉 Oslava právě začíná! 🎉</span>';
+      return;
+    }
+    document.getElementById('cd-days').textContent  = pad(Math.floor(diff / 86400000));
+    document.getElementById('cd-hours').textContent = pad(Math.floor((diff % 86400000) / 3600000));
+    document.getElementById('cd-mins').textContent  = pad(Math.floor((diff % 3600000) / 60000));
+    document.getElementById('cd-secs').textContent  = pad(Math.floor((diff % 60000) / 1000));
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  // Google Calendar link (13:00-17:00 Prague = 11:00-15:00 UTC)
+  document.getElementById('calBtn').href =
+    'https://www.google.com/calendar/render?action=TEMPLATE'
+    + '&text=Sa%C5%A1enkiny+8.+narozeniny+%F0%9F%9A%80'
+    + '&dates=20260426T110000Z/20260426T150000Z'
+    + '&details=Laser+game+oslava.+Prvn%C3%AD+hra+startuje+v+13%3A15.+Ob%C4%8Derstven%C3%AD+zaji%C5%A1t%C4%9Bno!'
+    + '&location=Laser+Ar%C3%A9na+Olomouc%2C+Legion%C3%A1%C5%99sk%C3%A1+739%2F7%2C+779+00+Olomouc';
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.card, .rsvp-box, .footer').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
